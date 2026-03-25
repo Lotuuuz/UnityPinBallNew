@@ -24,7 +24,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: 274e395d4aa3e044b986f8a031b77f3e, type: 2}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _METALLICSPECGLOSSMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -38,6 +39,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: 04a7391e7014aaa40a58ead1f6c43ba7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -52,7 +57,7 @@ Material:
     - _Parallax: 0.005
     - _Smoothness: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.9814742, b: 0.8283019, a: 0}
-    - _Color: {r: 1, g: 0.9814742, b: 0.8283019, a: 0}
+    - _BaseColor: {r: 1, g: 0, b: 0.6106863, a: 0}
+    - _Color: {r: 1, g: 0, b: 0.6106863, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

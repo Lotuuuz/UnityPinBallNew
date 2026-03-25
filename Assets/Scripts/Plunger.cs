@@ -1,5 +1,3 @@
-
-
 using UnityEngine;
 
 public class Plunger : MonoBehaviour
@@ -7,9 +5,10 @@ public class Plunger : MonoBehaviour
     [SerializeField] private float ballSpeed;
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private AudioClip bumperSFX;
+    [SerializeField] private Transform ballSpawnPoint;
 
     public SoundManager soundManager;
-    public GameManager gameManager; // NEW: reference to GameManager
+    public GameManager gameManager;
 
     void Update()
     {
@@ -21,15 +20,19 @@ public class Plunger : MonoBehaviour
 
     void FireCannon()
     {
-        // NEW: block firing if a ball already exists
+        // Block firing if a ball is already active
         if (gameManager.ballInPlay == true)
             return;
 
-        GameObject ballSpawnPoint = GameObject.Find("BallSpawnPoint");
+        // Block firing if the game is over
+        if (gameManager.gameOver == true)
+            return;
+
+
         GameObject ball = Instantiate(ballPrefab, ballSpawnPoint.transform.position, ballSpawnPoint.transform.rotation);
         ball.GetComponent<Rigidbody>().linearVelocity = ballSpawnPoint.transform.forward * ballSpeed;
 
-        gameManager.ballInPlay = true; // NEW: mark ball as active
-        //soundManager.PlaySFX(bumperSFX);
+        gameManager.ballInPlay = true;
+     //   soundManager.PlaySFX(bumperSFX);
     }
 }

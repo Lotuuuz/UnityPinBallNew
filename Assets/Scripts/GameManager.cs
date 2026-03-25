@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text ballCountText;
     [SerializeField] private GameObject gameOverScreen;
 
-    public bool ballInPlay = false; // NEW: tracks if a ball is active
+    public bool gameOver = false;
+    public bool ballInPlay = false;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     {
         ballsLeft--;
         ballCountText.text = ballsLeft.ToString();
-        ballInPlay = false; // NEW: allow spawning a new ball
+        ballInPlay = false;
 
         if (ballsLeft > 0)
         {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            gameOver = true; // IMPORTANT: block plunger from firing
             gameOverScreen.SetActive(true);
         }
     }
